@@ -21,7 +21,7 @@ void processChar(char name, char *soundex,int *index){
  
 void handleName(const char *name, int *index, int len, char *soundex) {
     for (int i = 1; i < len && *index < 4; i++) {
-        handleName(name[i],soundex,index);
+        processChar(name[i],soundex,index);
     }    
 }
  
@@ -36,7 +36,7 @@ void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
     soundex[0] = toupper(name[0]);
     int sIndex = 1;
-    parsename(name,&sIndex,len,soundex);
+    handleName(name,&sIndex,len,soundex);
     padWithZeros(sIndex,soundex);
     soundex[4] = '\0';
 }
