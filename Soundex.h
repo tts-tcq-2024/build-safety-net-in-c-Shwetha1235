@@ -6,10 +6,10 @@
 #include <string.h>
  
 char getSoundexCode(char c) {
-static const char soundexMap[27] = {
+static const char soundexMap[28] = {
         '0', '1', '2', '3', '0', '1', '2', '0', '0', '2', '2', '4', 
-        '5', '5', '0', '1', '2', '6', '2', '3', '0', '1', '0', '2', '0', '2', '3',
-    };
+        '5', '5', '0', '1', '2', '6', '2', '3', '0', '1', '0', '2', '0', '2', '3', '0',
+ };
     return soundexMap[toupper(c) - 'A'];}
  
 void processChar(char name, char *soundex,int *index){
