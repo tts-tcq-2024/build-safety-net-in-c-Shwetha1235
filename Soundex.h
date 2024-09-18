@@ -6,11 +6,11 @@
 #include <string.h>
  
 char getSoundexCode(char c) {
-static const char soundexMap[28] = {
+static const char soundexMap[26] = {
         '0', '1', '2', '3', '0', '1', '2', '0', '0', '2', '2', '4', 
         '5', '5', '0', '1', '2', '6', '2', '3', '0', '1', '0', '2', '0', '2'
     };
-    return soundexMap[toupper(c) - 'A'];}
+    return soundexMap[toupper(c) - 'A'];} // Map uppercase letter 'c' to its Soundex code.
  
 void processChar(char name, char *soundex,int *index){
      char code = getSoundexCode(name);
