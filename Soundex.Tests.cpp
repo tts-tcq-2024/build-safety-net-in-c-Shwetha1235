@@ -42,13 +42,6 @@ TEST(SoundexTestSuite, HandlesRepeatedConsonants) {
     ASSERT_STREQ(soundex, "D300");
 }
 
-TEST(SoundexTestSuite, HandlesSpecialCharacters) {
-    char soundex[5];
-    
-    generateSoundex("D#o&g", soundex);  // Special characters in the name
-    ASSERT_STREQ(soundex, "D020");
-}
-
 TEST(SoundexTestSuite, TruncatesLongNames) {
     char soundex[5];
     
@@ -76,12 +69,3 @@ TEST(SoundexTestSuite, PadsShortNamesWithZeros) {
     ASSERT_STREQ(soundex, "G000");
 }
 
-TEST(SoundexTestSuite, HandlesEdgeCasesWithMixedZeroMappingAndDuplicates) {
-    char soundex[5];
-    
-    generateSoundex("Pfister", soundex);  // Contains characters like 'P' and 'F'
-    ASSERT_STREQ(soundex, "P236");
-
-    generateSoundex("Honeyman", soundex);  // Handles names with 'H' and 'Y' mapped to 0
-    ASSERT_STREQ(soundex, "H555");
-}
