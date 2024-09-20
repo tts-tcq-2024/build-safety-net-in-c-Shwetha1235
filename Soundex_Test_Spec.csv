@@ -1,0 +1,15 @@
+﻿Test Name,Input,Expected Output,Description
+HandlesEmptyInput,""""" (Empty string)","""""",Ensures that empty input results in an empty Soundex code.
+HandlesSingleConsonant,"""B""","""B000""",Verifies that a single consonant is followed by three zeros.
+HandlesOnlyVowels,"""AEIOU""","""A000""","Ensures that vowels are ignored after the first letter, resulting in A000."
+IgnoresCaseDifferences (Case 1),"""Smith""","""S530""",Verifies that mixed-case names are correctly handled.
+IgnoresCaseDifferences (Case 2),"""sMiTh""","""S530""",Verifies that names with different cases result in the same Soundex code.
+HandlesRepeatedConsonants (Case 1),"""Bbbb""","""B100""",Checks that repeated consonants are compressed into one.
+HandlesRepeatedConsonants (Case 2),"""Ddddd""","""D300""","Another case of repeated consonants, verifying compression."
+HandlesSpecialCharacters,"""D#o&g""","""D020""",Ensures special characters are ignored in the name while generating Soundex.
+TruncatesLongNames (Case 1),"""Washington""","""W252""",Ensures that names longer than 4 characters are truncated correctly.
+TruncatesLongNames (Case 2),"""Gutierrez""","""G362""",Another case of truncating long names.
+HandlesNameWithMultipleZeroMappedLetters,"""Ashcraft""","""A261""",Verifies handling of names where some characters map to zero and others don't.
+PadsShortNamesWithZeros (Case 1),"""Li""","""L000""",Ensures that short names are padded with zeros to make the Soundex code 4 chars.
+PadsShortNamesWithZeros (Case 2),"""Ga""","""G000""",Another case of padding short names with zeros.
+HandlesEdgeCasesWithMixedZeroMappingAndDuplicates,"""Honeyman""","""H555""","Verifies handling of names with 'H' and 'Y', which map to 0, and duplicate letters."
